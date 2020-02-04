@@ -5,8 +5,10 @@ import fr.mds.abstractfactory.color.Color;
 import fr.mds.abstractfactory.color.Green;
 import fr.mds.abstractfactory.color.Red;
 import fr.mds.abstractfactory.factory.AbstractFactory;
+import fr.mds.abstractfactory.factory.AllObjects;
 import fr.mds.abstractfactory.factory.ColorFactory;
 import fr.mds.abstractfactory.factory.FactoryProducer;
+import fr.mds.abstractfactory.factory.Item;
 import fr.mds.abstractfactory.factory.ShapeFactory;
 import fr.mds.abstractfactory.shape.Circle;
 import fr.mds.abstractfactory.shape.Rectangle;
@@ -15,8 +17,9 @@ import fr.mds.abstractfactory.shape.Square;
 
 public class AbstractFactoryPatternDemo {
 	public static void main(String[] args) {
-		System.out.println("TEST");
-		
+		System.out.println("---------------");
+		System.out.println("EXO 1 :");
+		System.out.println("---------------");
 		// get shape factory    
 		AbstractFactory shapeFactory = FactoryProducer.getFactory(ShapeFactory.SHAPE);
 		
@@ -62,5 +65,27 @@ public class AbstractFactoryPatternDemo {
 		
 		// call draw method of Shape Circle
 		myShape.draw();
+		
+		System.out.println("---------------");
+		System.out.println("EXO 2 :");
+		System.out.println("---------------");
+		//get directly an item with factory auto selecting
+		Item item = FactoryProducer.getItem(AllObjects.BLUE);   
+		System.out.println("this is a " + item.getName());
+		
+		item = FactoryProducer.getItem(AllObjects.GREEN);  
+		System.out.println("this is a " + item.getName());
+		
+		item = FactoryProducer.getItem(AllObjects.RED);  
+		System.out.println("this is a " + item.getName());
+		
+		item = FactoryProducer.getItem(AllObjects.SQUARE);   
+		System.out.println("this is a " + item.getName());
+		
+		item = FactoryProducer.getItem(AllObjects.RECTANGLE);  
+		System.out.println("this is a " + item.getName());
+		
+		item = FactoryProducer.getItem(AllObjects.CIRCLE);   
+		System.out.println("this is a " + item.getName());
 	}
 }
